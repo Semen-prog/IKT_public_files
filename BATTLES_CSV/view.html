@@ -1,0 +1,288 @@
+<html>
+
+   <head>
+        <title>Заголовок документа</title>
+   </head>
+
+   <body>
+   !!! version !!! <br> <br>
+version: Version number of the data<br>
+<br>
+<br>
+!!! weather !!! <br> <br>
+isqno: <br>
+wxno: <br>
+wx1: Precipitation<br>
+wx2: Cloudiness<br>
+wx3: Temperature<br>
+wx4:
+Season
+For Northern Hemisphere
+- Spring: Mar, Apr, May - Summer: Jun, Jul, Aug - Fall: Sep, Oct, Nov - Winter: Dec, Jan, Feb
+For Southern Hemisphere
+- Fall: Mar, Apr, May - Winter: Jun, Jul, Aug - Spring: Sep, Oct, Nov - Summer: Dec, Jan, Feb
+<br>
+wx5: Climate (temperate, desert, tropical)<br>
+<br>
+<br>
+!!! battle_dyads !!! <br> <br>
+isqno: <br>
+attacker: Attacking actor.<br>
+defender: Defending actor.<br>
+wt: Weight to assign dyad: :math:`\frac{1}{\text{number of dyads}}`. <br>
+dyad: Undirected dyad name. The dyad name consists of the names of the actors, ordered lexigraphically, and separated by a "|".<br>
+direction: Equal to "1" if the first actor listed in the dyad is the attacker, and "-1" if the first actor in the dyad is the defender.<br>
+primary: True if the dyad is the dyad consisting of the actors listed first in the ``battles.actors`` column. Filter on this if only one dyad needs to be used per battle, and the weights.<br>
+<br>
+<br>
+!!! battle_durations !!! <br> <br>
+isqno: battle sequence (line or serial) number<br>
+datetime_min: Battle start time (minimum)<br>
+datetime_max: Battle end time (minimum)<br>
+datetime:
+Battle date and time (mid-point). This is simply the midpoint of ``datetime_min`` and ``datetime_max``.
+<br>
+duration1: Battle duration (in days) calculated from ``datetime_min`` and ``datetime_max``.<br>
+duration2: Battle duration (in days) calculated using durations in ``active_time_periods``.<br>
+<br>
+<br>
+!!! commanders !!! <br> <br>
+isqno: battle sequence number<br>
+attacker: Attacker or defender in the battle<br>
+actors: Actor(s), state or nonstate, of the belligerent.  If more than one actor, actors are separated by " & ".<br>
+commanders: Commander's name.<br>
+uri: URL of the commander's article in Wikipedia (if any). This column is incomplete.<br>
+<br>
+<br>
+!!! front_widths !!! <br> <br>
+isqno: <br>
+front_number: Front observation number. "1" is the front at the start of the battle.<br>
+wofa: Width of attacker's front (in km)<br>
+wofd: Width of defenders's front (in km)<br>
+time_min: Start time of front (min)<br>
+time_max: Start time of front (max)<br>
+<br>
+<br>
+!!! battles !!! <br> <br>
+isqno: battle sequence (line or serial) number<br>
+war: war in which battle/engagement was fought<br>
+name: name of battle<br>
+locn: location where battle was fought<br>
+campgn: campaign in which battle was fought<br>
+postype: defender's posture type descriptor<br>
+post1: defender's primary defensive posture<br>
+post2: defender's secondary defensive posture<br>
+front: did defender's posture change along the front?<br>
+depth: did defender's posture change with depth?<br>
+time: did defender's posture change over time?<br>
+cea: attacker's relative combat effectiveness<br>
+surpa: attacker's relative surprise advantage<br>
+aeroa: attacker's relative air superority in theater<br>
+leada: attacker's relative leadership advantage<br>
+trnga: attacker's relative training advantage<br>
+morala: attacker's relative morale advantage<br>
+logsa: attacker's relative logistics advantage<br>
+momnta: attacker's relative momentum advantage<br>
+intela: attacker's relative intelligence advantage<br>
+techa: attacker's relative technology advantage<br>
+inita: attacker's relative initiative advantage<br>
+wina: attacker's win/draw/lose<br>
+kmda: distance attacker advanced/retreated, in kilometers.<br>
+crit: criterion for assigning wina<br>
+quala: degree of influence of force quality<br>
+resa: degree of influence of reserves<br>
+mobila: degreee of influence of mobility<br>
+aira: degree of influence of air superiority<br>
+fprepa: degree of influence of weather<br>
+wxa: degree of influence of terrain<br>
+terra: degree of influence of terrain<br>
+leadaa: degree of influence of leadership<br>
+plana: degree of influence of planning<br>
+surpaa: degree of influence of surprise<br>
+mana: degree of influence of manueverability<br>
+logsaa: degree of influence of logistics<br>
+fortsa: degree of influence of fortifications<br>
+deepa: degree of influence of depth of position<br>
+is_hero:
+Battle from original HERO (1984) data; if false, then from the LFW Management Associates, Inc. Report "Independent Review/Reassessment of Anomalous Data (IR/RAD)," 22 June 1987.  CDB90 combined the 600 battles from HERO (1984) with an additional 60 battles from the LWF (1987).
+<br>
+war2:
+War name as indicated in HERO (1984) data For battles 600-660, they are assigned to the wars in the HERO 1984, or use the cdb90 war.
+<br>
+war3:
+War, aggregating WWI, WWI, Napoleonic Wars, and the Arab-Israeli 1967 and 1973 wars
+<br>
+cow_warno: Correlates of War (COW) war number of the war in which the battle occured.<br>
+cow_warname: Correlates of War (COW) war name of the war in which the battle occured.<br>
+war4:
+New war classification. Follows the wars in COW for battles after 1816, and the Wikipedia classification of wars for battles prior to that. Names are in the style of COW wars.
+<br>
+war4_theater: War theater. Only used for the larger wars.<br>
+dbpedia:
+URI for associated `dbpedia <http://dbpedia.org>`__ resource. These are easy to find for battles in the wars prior to WWI. It was harder to find these for WWI and later wars, and especially for the Arab-Israeli wars.
+<br>
+war_initiator: Was attacker in the battle on the side of the war initiator. This uses the COW war initiator coding for battles in COW wars, and the author's coding for battles not in COW wars.
+<br>
+parent:
+``isqno`` of a parent battle in the data. If not null, then the observation is a duplicated battle.
+<br>
+<br>
+<br>
+!!! battle_actors !!! <br> <br>
+isqno: <br>
+attacker: Was actor on the attacking side?<br>
+n: Number of actor, for battle/belligerent combinations.<br>
+actor: Name of actor<br>
+<br>
+<br>
+!!! belligerents !!! <br> <br>
+isqno: battle sequence number<br>
+nam: designation of the forces<br>
+co: commanders<br>
+str: total personnel strength<br>
+code: indicates interpretation of total personnel strength<br>
+intst: initial personnel strength<br>
+rerp: personnel reinf/repl during battle<br>
+cas: battle casualties<br>
+finst: personnel strength at battle's end<br>
+cav: horse cavalry strength<br>
+tank: total number of tanks<br>
+lt: number of light tanks<br>
+mbt: number of main battle tanks<br>
+arty: number of artillery tubes<br>
+fly: number of close air support sorties<br>
+ctank: armor losses<br>
+carty: artillery losses<br>
+cfly: close air support aircraft losses<br>
+pri1: primary tactical scheme, part 1<br>
+pri2: primary tactical scheme, part 2<br>
+pri3: primary tactical scheme, part 3<br>
+sec1: secondary tactical scheme, part 1<br>
+sec2: secondary tactical scheme, part 2<br>
+sec3: secondary tactical scheme, part 3<br>
+reso1: primary resolution/outcome, part 1<br>
+reso2: primary resolution/outcome, part 2<br>
+reso3: primary resolution/outcome, part 3<br>
+strpl: strength error, plus percent<br>
+strmi: strength error, minus percent<br>
+caspl: casualty error, plus percent<br>
+casmi: casualty error, minus percent<br>
+ach: mission accomplishment score; on scale of 1 to 10, 1=low<br>
+attacker: Attacker or defender in the battle<br>
+actors: Actor(s), state or nonstate, of the belligerent.  If more than one actor, actors are separated by " & ".<br>
+<br>
+<br>
+!!! active_periods !!! <br> <br>
+isqno: battle sequence number<br>
+atp_number: Active time period number<br>
+start_time_min: Active time period start time (min)<br>
+start_time_max: Active time period start time (max)<br>
+end_time_min: Active time period end time (min)<br>
+end_time_max: Active time period end time (max)<br>
+duration_min: Active time period duration (min)<br>
+duration_max: Active time period duration (max)<br>
+duration_only: Duration given, but start and end times are unknown.
+For some battles CDB90 indicates an exact duration without indicating the hours and minutes of the start and end times. If this variable is true, then the `duration_*` will not be a function of `start_time_*` and `end_time_*`.<br>
+<br>
+<br>
+!!! terrain !!! <br> <br>
+isqno: battle sequence number<br>
+terrano: local terrain description number<br>
+terra1: Terrain description: rugged, rolling, flat<br>
+terra2: Terrain description: wooded, mixed, bare, desert<br>
+terra3: Terrain description: urban, marsh, dunes<br>
+<br>
+<br>
+!!! enum_codead !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_aeroa !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_pri !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wx1 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wx2 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wx3 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wx4 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wx5 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_terra1 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_terra2 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_terra3 !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_postype !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_surpa !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_crit !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_cea !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_wina !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_post !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+!!! enum_reso !!! <br> <br>
+value: variable value<br>
+description: description of the value<br>
+<br>
+<br>
+   </body>
+
+</html>
