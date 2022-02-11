@@ -216,13 +216,18 @@ def to_paint(tab, s):
 def paint(res):
     m = Tk()
     m.geometry("500x500")
+
+    if len(res) == 0:
+        l1 = Label(m, text="Нет результатов:", height=5, width=20, font="Arial 10")
+        l1.grid(row=0, column=1)
+        return
+
     l1 = Label(m, text="Построить график по:", height=5, width=20, font="Arial 10")
     cmb1 = ttk.Combobox(m, values=['Weather', 'Members', 'Time'])
     b1 = Button(m, text="Построить", bg="white", command=lambda: to_paint(res, cmb1.get()))
     l1.grid(row=0, column=1)
     cmb1.grid(row=1, column=1)
     b1.grid(row=2, column=1)
-
     m.mainloop()
 
 
@@ -273,7 +278,7 @@ def search():
             st.add(v[0])
         isqno &= st
     if user.temp:
-        ask = "SELECT value FROM enum_wx3 WHERE description = '" + user.precipitation + "'"
+        ask = "SELECT value FROM enum_wx3 WHERE description = '" + user.temp + "'"
         cur.execute(ask)
         en = cur.fetchone()[0]
         ask = "SELECT isqno FROM weather WHERE wx3 = '" + en + "'"
