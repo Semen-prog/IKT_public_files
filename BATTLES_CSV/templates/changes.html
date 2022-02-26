@@ -78,9 +78,9 @@
         {% else %}
         <h2>Изменения. Даты и время</h2>
         <p class="pb-1" style="margin-top: 40px;">Год начала:</p>
-        <input type="text" class="form-control" name="yearStart" placeholder="1234" style="width: 30%;">
+        <input type="text" class="form-control" name="yearStart" value={{ g.year_start }} placeholder="1234" style="width: 30%;">
         <p class="pb-1" style="margin-top: 40px;">Длительность:</p>
-        <input type="text" class="form-control" name="duration" placeholder="666" style="width: 30%;">
+        <input type="text" class="form-control" name="duration" value={{ g.duration }} placeholder="666" style="width: 30%;">
         {% endif %}
         <button type="submit" class="btn btn-danger" style="margin-top: 60px;">Сохранить</button>
     </form>

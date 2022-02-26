@@ -198,7 +198,7 @@ def count_res():
         for v in vars:
             st.add(v[0])
         isqno &= st
-    if session['duration'] != 'Не выбрано':
+    if session['duration'] != '####':
         ask = 'SELECT isqno FROM battles WHERE duration1 = "' + session['duration'] + '"'
         cur.execute(ask)
         vars = cur.fetchall()
@@ -206,7 +206,7 @@ def count_res():
         for v in vars:
             st.add(v[0])
         isqno &= st
-    if session['year_start'] != 'Не выбрано':
+    if session['year_start'] != '####':
         ask = 'SELECT isqno FROM battle_durations WHERE datetime_min LIKE "' + session['year_start'] + '%"'
         cur.execute(ask)
         vars = cur.fetchall()
@@ -276,8 +276,8 @@ def init():
     session['defender'] = 'Не выбрано'
     session['precipitation'] = 'Не выбрано'
     session['temp'] = 'Не выбрано'
-    session['year_start'] = 'Не выбрано'
-    session['duration'] = 'Не выбрано'
+    session['year_start'] = '####'
+    session['duration'] = '####'
 
 
 @app.route('/')
