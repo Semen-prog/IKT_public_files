@@ -1,8 +1,8 @@
 import sqlite3, csv
 from imutils import paths
 
-def get_connection():
-    conn = sqlite3.connect('battles.db')
+def get_connection(db_name):
+    conn = sqlite3.connect(db_name)
     cur = conn.cursor()
     return conn, cur
 
@@ -10,7 +10,7 @@ def close_connection(conn):
     conn.commit()
 
 def create_database():
-    conn, cur = get_connection()
+    conn, cur = get_connection('battles.db')
     list_files = list(paths.list_files("csvs"))
 
     for path in list_files:
@@ -22,6 +22,9 @@ def create_database():
             tp = "None"
             f1, f2 = True, True
             for i in range(1, len(reader)):
+                if reader[i][j] == '':
+                    reader[i][j] = 'NULL'
+                    continue
                 try:
                     reader[i][j] = int(reader[i][j])
                 except:
@@ -42,7 +45,8 @@ def create_database():
             else:
                 ask += ",\n"
         cur.execute(ask)
-        for row in reader:
+        for k in range(1, len(reader)):
+            row = reader[k]
             ask = "INSERT INTO " + name + " VALUES("
             s = '?' * len(row)
             s = ', '.join(s)

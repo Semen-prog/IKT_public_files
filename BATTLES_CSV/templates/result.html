@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+
+{% block title %}Главная{% endblock %}
+
+{% block var1 %}
+<a href="/" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+    Главная
+</a>
+{% endblock %}
+
+{% block var2 %}
+<a href="/filters" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+    Фильтры
+</a>
+{% endblock %}
+
+{% block var3 %}
+<a href="#" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+    Таблицы
+</a>
+{% endblock %}
+
+{% block var4 %}
+<a href="/result" class="nav-link active">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+    Результат
+</a>
+{% endblock %}
+
+
+{% block body %}
+<div class="container px-4 py-5" id="featured-3">
+    <h2>Результаты:</h2>
+    <p>По вашему запросу найдено битв: {{ cnt }}</p>
+    {% if cnt > 0 %}
+    <ul style="margin-top: 40px;">
+        <li style="margin-bottom: 20px;">
+            <h4>Диаграмма по погоде</h4>
+            <ul style="margin-top: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">Круговая диаграмма по облачности</h6>
+                        <a href="/paint/type=precip"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">Круговая диаграмма по температуре</h6>
+                        <a href="/paint/type=temp"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>Диаграмма по участникам</h4>
+            <ul style="margin-top: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">Круговая диаграмма по агрессорам</h6>
+                        <a href="/paint/type=attack"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">Круговая диаграмма по защитникам</h6>
+                        <a href="/paint/type=defend"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>График по времени</h4>
+            <ul style="margin-top: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">График по году начала</h6>
+                        <a href="/paint/type=ystart"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">График по длительности</h6>
+                        <a href="/paint/type=duration"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>Местоположения на карте</h4>
+            <ul style="margin-top: 20px;">
+                <li style="margin-bottom: 20px;">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <h6 style="margin-right: 10%;">Отобразить страны сражений на карте</h6>
+                        <a href="/paint/type=mapcountry"><button type="button" class="btn btn-danger">Построить</button></a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block var1 %}
+<a href="/" class="nav-link active">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+    Главная
+</a>
+{% endblock %}
+
+{% block var2 %}
+<a href="/filters" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+    Фильтры
+</a>
+{% endblock %}
+
+{% block var3 %}
+<a href="#" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+    Таблицы
+</a>
+{% endblock %}
+
+{% block var4 %}
+<a href="/result" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+    Результат
+</a>
+{% endblock %}
+
+{% block body %}
+{% endblock %}

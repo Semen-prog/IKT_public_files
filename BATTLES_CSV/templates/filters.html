@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block var1 %}
+<a href="/" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+    Главная
+</a>
+{% endblock %}
+
+{% block var2 %}
+<a href="/filters" class="nav-link active">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+    Фильтры
+</a>
+{% endblock %}
+
+{% block var3 %}
+<a href="#" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+    Таблицы
+</a>
+{% endblock %}
+
+{% block var4 %}
+<a href="/result" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+    Результат
+</a>
+{% endblock %}
+
+{% block body %}
+<div class="container px-4 py-5" id="featured-3">
+    <h2>Фильтры:</h2>
+    <p>(Здесь вы можете выбрать, по каким параметрам вы хотите найти сражение):</p>
+    <ul style="margin-top: 40px;">
+        <li style="margin-bottom: 20px;">
+            <h4>Имена и названия</h4>
+            <ul style="margin-top: 20px;">
+                <li><p>Название битвы - {{ g.name }}</p></li>
+                <li><p>Название войны - {{ g.war }}</p></li>
+            </ul>
+            <a href={{ link_list[0] }}><button type="button" class="btn btn-primary" style="margin-bottom: 20px;">Изменить</button></a>
+        </li>
+        <li>
+            <h4>Погода</h4>
+            <ul style="margin-top: 20px;">
+                <li><p>Температура - {{ g.temp }}</p></li>
+                <li><p>Облачность - {{ g.precipitation }}</p></li>
+            </ul>
+            <a href={{ link_list[1] }}><button type="button" class="btn btn-primary" style="margin-bottom: 20px;">Изменить</button></a>
+        </li>
+        <li>
+            <h4>Участники</h4>
+            <ul style="margin-top: 20px;">
+                <li><p>Атакующая сторона - {{ g.attacker }}</p></li>
+                <li><p>Защищающаяся сторона - {{ g.defender }}</p></li>
+            </ul>
+            <a href={{ link_list[2] }}><button type="button" class="btn btn-primary" style="margin-bottom: 20px;">Изменить</button></a>
+        </li>
+        <li>
+            <h4>Время</h4>
+            <ul style="margin-top: 20px;">
+                <li><p>Год начала битвы - {{ g.year_start }}</p></li>
+                <li><p>Длительность войны - {{ g.duration }}</p></li>
+            </ul>
+            <a href={{ link_list[3] }}><button type="button" class="btn btn-primary" style="margin-bottom: 20px;">Изменить</button></a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

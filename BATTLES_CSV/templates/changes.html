@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block var1 %}
+<a href="/" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+    Главная
+</a>
+{% endblock %}
+
+{% block var2 %}
+<a href="/filters" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+    Фильтры
+</a>
+{% endblock %}
+
+{% block var3 %}
+<a href="#" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+    Таблицы
+</a>
+{% endblock %}
+
+{% block var4 %}
+<a href="/result" class="nav-link text-secondary">
+    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+    Результат
+</a>
+{% endblock %}
+
+{% block body %}
+<div class="container px-4 py-5" id="featured-3">
+    <form method="post" enctype="multipart/form-data">
+        {% if type == 0 %}
+        <h2 style="margin-bottom: 20px;">Изменения. Названия и имена</h2>
+        <p class="pb-1" style="margin-top: 40px;">Название битвы:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="bat">
+          {% for el in list1 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        <p class="pb-1" style="margin-top: 40px;">Название войны:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="war">
+          {% for el in list2 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        {% elif type == 1 %}
+        <h2>Изменения. Участники</h2>
+        <p class="pb-1" style="margin-top: 40px;">Атакующая сторона:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="at">
+          {% for el in list1 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        <p class="pb-1" style="margin-top: 40px;">Защищающаяся сторона:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="def">
+          {% for el in list2 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        {% elif type == 2 %}
+        <h2>Изменения. Погода</h2>
+        <p class="pb-1" style="margin-top: 40px;">Температура:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="temp">
+          {% for el in list1 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        <p class="pb-1" style="margin-top: 40px;">Облачность:</p>
+        <select class="form-select" aria-label="Default select example" style="width: 30%;" name="precip">
+          {% for el in list2 %}
+            <option>{{ el }}</option>
+          {% endfor %}
+        </select>
+        {% else %}
+        <h2>Изменения. Даты и время</h2>
+        <p class="pb-1" style="margin-top: 40px;">Год начала:</p>
+        <input type="text" class="form-control" name="yearStart" placeholder="1234" style="width: 30%;">
+        <p class="pb-1" style="margin-top: 40px;">Длительность:</p>
+        <input type="text" class="form-control" name="duration" placeholder="666" style="width: 30%;">
+        {% endif %}
+        <button type="submit" class="btn btn-danger" style="margin-top: 60px;">Сохранить</button>
+    </form>
+</div>
+{% endblock %}
